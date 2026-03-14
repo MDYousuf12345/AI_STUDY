@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --background: #050505;
+  --foreground: #f8fafc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Premium Dark Background Grid & Glows */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 15% 50%, rgba(139, 92, 246, 0.08), transparent 40%),
+    radial-gradient(circle at 85% 30%, rgba(6, 182, 212, 0.08), transparent 40%);
+  pointer-events: none;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 1), transparent 80%);
+  pointer-events: none;
+}
+
+@layer components {
+  .dark-card {
+    @apply rounded-3xl border border-cardborder bg-darkglass shadow-float backdrop-blur-2xl transition-all duration-500 relative overflow-hidden;
+  }
+
+  .dark-card::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-b from-white/[0.04] to-transparent opacity-0 transition-opacity duration-500 rounded-3xl pointer-events-none;
+  }
+
+  .dark-card:hover::before {
+    @apply opacity-100;
+  }
+  
+  .dark-card:hover {
+    @apply border-white/[0.12] shadow-glow;
+  }
+
+  .section-eyebrow {
+    @apply inline-flex items-center rounded-full border border-white/[0.08] bg-white/[0.03] px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-slate-400 backdrop-blur-md;
+  }
+
+  .pill {
+    @apply rounded-full border border-white/[0.08] bg-white/[0.03] px-4 py-1.5 text-sm text-slate-400 transition-all duration-300 hover:border-accent/40 hover:bg-accent/10 hover:text-white hover:shadow-[0_0_15px_rgba(139,92,246,0.2)];
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-[#050505];
+}
+
+::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-slate-800 transition-colors hover:bg-slate-700;
+}
