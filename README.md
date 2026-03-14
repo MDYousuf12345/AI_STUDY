@@ -91,8 +91,8 @@ Visit `http://localhost:3000` to see the application in action.
 ## 👨‍💻 Developer Credits
 
 - **St Martins Engineering College** (4th Year)
-- **Roll Number**: 22K81A12G2
-- **Name**: [MOHAMMED KAIF](https://kaifwebsite666.netlify.app/)
+- **Roll Number**: 22K81A12G3
+- **Name**: MOHAMMED YOUSUF
 
 ---
 
